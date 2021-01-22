@@ -1,0 +1,6 @@
+framework module Pods_W4_GCD {
+  umbrella header "Pods-W4_GCD-umbrella.h"
+
+  export *
+  module * { export * }
+}
