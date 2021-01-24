@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     //내부에서 image처리하는 방법 찾기
     func getImage(from url: String, completion: @escaping (UIImage?) -> Void) {
-        let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, error in
+        let task = URLSession.shared.dataTask(with: URL(string: url)!) { data, _, _ in
             guard let data = data, let image = UIImage(data: data) else {
                 return
             }
@@ -104,6 +104,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) {
             cell.avatarImageView.image = cachedImage
         } else {
+            
             getImage(from: imageURL) { image in
                 guard let image = image else { return }
                 cell.avatarImageView.image = image

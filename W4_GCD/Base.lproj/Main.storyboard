@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Rx-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RxViewController" customModule="W4_GCD" customModuleProvider="target" sceneMemberID="viewController">
@@ -143,7 +143,7 @@
                             <constraint firstItem="l7f-7T-aiZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="n0f-uu-ocT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="CWu-sc-jxl"/>
+                    <tabBarItem key="tabBarItem" title="Rx" image="house" catalog="system" id="CWu-sc-jxl"/>
                     <connections>
                         <outlet property="loadButton" destination="HwD-8z-QCx" id="MTK-HJ-WCO"/>
                         <outlet property="tableView" destination="l7f-7T-aiZ" id="YhY-dO-6Z1"/>
@@ -293,7 +293,7 @@
                             <constraint firstItem="wiP-hS-hZf" firstAttribute="bottom" secondItem="T0l-1G-pql" secondAttribute="bottom" id="gke-1x-MjL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eAd-N2-lGR"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" id="eAd-N2-lGR"/>
                     <connections>
                         <outlet property="loadButton" destination="ZXa-BE-Tsh" id="11R-yk-kEP"/>
                         <outlet property="tableView" destination="T0l-1G-pql" id="sKC-cO-VuW"/>
@@ -310,6 +310,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6Oi-br-p9S" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sq3-t5-Gex">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -324,6 +325,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

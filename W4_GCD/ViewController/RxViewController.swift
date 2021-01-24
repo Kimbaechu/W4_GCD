@@ -36,11 +36,13 @@ class RxViewController: UIViewController {
     
     @IBAction func load(_ sender: Any) {
         print(#function, Thread.current)
-        getData(MEMBER_LIST_URL)
-            .bind(to: memberObservable)
-            .disposed(by: disposeBag)
+        if tableView.delegate != nil || tableView.dataSource != nil {
+            tableView.delegate = nil
+            tableView.dataSource = nil
+        }
         
-        memberObservable
+        getData(MEMBER_LIST_URL)
+            .observeOn(MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: "MemberTableViewCell", cellType: MemberTableViewCell.self)) { [weak self] index, item, cell in
                 cell.nameLabel.text = item.name
                 cell.ageLabel.text = "\(item.age)"
@@ -51,10 +53,31 @@ class RxViewController: UIViewController {
                     .disposed(by: self!.disposeBag)
             }
             .disposed(by: disposeBag)
-        tableView.layoutIfNeeded()
         
-        loadButton.setTitle("Done", for: .disabled)
-        loadButton.isEnabled = false
+//        getData(MEMBER_LIST_URL)
+//            .bind(to: memberObservable)
+//            .disposed(by: disposeBag)
+//        
+//        memberObservable
+//            .bind(to: tableView.rx.items(cellIdentifier: "MemberTableViewCell", cellType: MemberTableViewCell.self)) { [weak self] index, item, cell in
+//                cell.nameLabel.text = item.name
+//                cell.ageLabel.text = "\(item.age)"
+//                cell.jobLabel.text = item.job
+//                cell.avatarImageView.image = nil
+//                self?.getImage(from: item.avatar)
+//                    .bind(to: cell.avatarImageView.rx.image)
+//                    .disposed(by: self!.disposeBag)
+//            }
+//            .disposed(by: disposeBag)
+//        
+        
+        
+        
+        tableView.layoutIfNeeded()
+        loadButton.setTitle("\(arc4random())", for: .normal)
+//        loadButton.setTitle("Done", for: .disabled)
+//        loadButton.isEnabled = false
+        
         
     }
     
